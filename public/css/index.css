@@ -1,82 +1,213 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --MainWhiteColor: #ffffff;
+    --MainInput: #777373;
+    --BackgroundSearchInput: #D5D1D1;
+    --ContactCard: rgb(231, 231, 231);
+}
+
+main {
     display: flex;
+    height: 100vh; 
+}
+
+.list_contacts_styled {
+    width: 330px;
+    background: var(--MainWhiteColor);
+}
+
+.search_input_box {
+    display: flex;
+    padding: 8px;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    background: var(--BackgroundSearchInput);
+    width: 100%;
 }
 
-.container {
-    background-color: white;
+.filter_contacts_input {
+    border-radius: 30px;
+    border: 1px solid #605e5e;
+    width: 300px;
+    height: 4px;
+    font-size: 14px;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-}
-
-.tabs {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-}
-
-.tab-button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
-
-.tab-button.active {
-    background-color: #0056b3;
-}
-
-.tab-button:hover {
-    background-color: #0056b3;
-}
-
-.tab-content {
-    display: none;
-}
-
-.tab-pane.active {
-    display: block;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
+    background: var(--MainWhiteColor);
+    font-family: "Poppins", serif;
     font-weight: bold;
+    font-style: normal;
 }
 
-.form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.filter_contacts_input::placeholder {
+    color: var(--MainInput);
 }
 
-.btn {
+/* contact styles */
+.contacts_list_container {
+    height: 400px; 
+    overflow-y: auto; 
+    user-select: none;
+}
+
+.contact_container {
     width: 100%;
-    padding: 10px;
-    border: none;
-    background-color: #007bff;
-    color: white;
+    height: 85px;
+    background: var(--MainWhiteColor);
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+.contact_container:hover{
+    background: #dddddd;
     cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s;
 }
 
-.btn:hover {
-    background-color: #0056b3;
+.user_info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user_avatar {
+    width: 70px;
+    height: 70px;
+    background:transparent;
+    background-size: cover;
+    background-position: center;
+    border-radius: 100%;
+}
+#name_user_span {
+    font-family: "Poppins", serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 20px;
+}
+
+#last_message {
+    font-family: "Poppins", serif;
+    font-style: normal;
+    font-size: 15px;
+}
+
+.online_time_box {
+    font-family: "Poppins", serif;
+    font-style: normal;
+    font-size: 15px;
+}
+/* contact styles */
+
+.chat_right_content{
+    width: 100%;
+    padding-inline: 10px;
+}
+
+.user_info_table_chat{
+    height:85px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border-bottom: 1px solid #5d5d5d;
+}
+#active_user_status{
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+
+}
+
+#named_user_chat{
+    font-family: 'poppins', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+#named_user_element_chat{
+    display: grid;
+}
+
+.container_messages_place{
+    width: 100%;
+
+}
+
+
+.board_get_message_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.list_contacts_styled {
+    width: 330px;
+    background: var(--MainWhiteColor);
+}
+
+.chat_right_content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-inline: 10px;
+}
+
+
+.contact_user_table {
+    height: 85px;
+    border-bottom: 1px solid #5d5d5d;
+}
+
+.user_info_table_chat {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.container_messages_place {
+    flex-grow: 1; 
+    overflow-y: auto; 
+}
+
+
+.board_get_message_container {
+    position: sticky;
+    bottom: 0;
+    background-color: white; 
+    padding: 10px; 
+    z-index: 1000; 
+}
+
+.input_box_message_get {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input_style_message_user_get {
+    flex-grow: 1; 
+    height: 30px;
+    width: 495.97px;
+    border-radius: 20px;
+    padding-inline: 10px;
+    background: #dddddd;
+}
+
+
+
+.message_get_button_logo {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
