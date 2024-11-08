@@ -20,5 +20,7 @@
 
 -- SET FOREIGN_KEY_CHECKS = 0;
 -- truncate table messages;
+-- truncate table users;
 -- SET FOREIGN_KEY_CHECKS = 1;
 -- select * from messages;
+-- select * from users;
