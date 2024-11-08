@@ -130,3 +130,4 @@ sequelize.sync()
     .catch(err => {
         console.error('Ошибка при синхронизации моделей:', err);
     });
+    
