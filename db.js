@@ -15,14 +15,15 @@ sequelize.authenticate()
     });
 
 const User = sequelize.define('User', {
-    id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
+    user_id: {
+        type: DataTypes.BIGINT.UNSIGNED,
+        autoIncrement: true,
+        primaryKey: true
     },
     username: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
     email: {
         type: DataTypes.STRING,
@@ -32,10 +33,49 @@ const User = sequelize.define('User', {
     password: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    created_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW
+    },
+    updated_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+        onUpdate: DataTypes.NOW
     }
-}, {
-    tableName: 'users',
-    timestamps: true
+    }, {
+        tableName: 'users',
+        timestamps: false
 });
 
-module.exports = { sequelize, User };
+const Message = sequelize.define('Message', {
+    message_id: {
+        type: DataTypes.BIGINT.UNSIGNED,
+        autoIncrement: true,
+        primaryKey: true
+    },
+    user_id: {
+        type: DataTypes.BIGINT.UNSIGNED,
+        allowNull: false
+    },
+    username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    content: {
+        type: DataTypes.TEXT,
+        allowNull: false
+    },
+    sent_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW
+    }
+    }, {
+        tableName: 'messages',
+        timestamps: false
+});
+
+
+Message.belongsTo(User, { foreignKey: 'user_id' });
+
+module.exports = { sequelize, User, Message };
